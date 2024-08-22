@@ -19,7 +19,6 @@ gifImage.src = 'https://joseadelmo.github.io/preloaderJs/iSOW_web_preload.gif';
 gifImage.style.cssText = `
     max-width: 100%;
     max-height: 100%;
-    display: none;
     position: absolute;
     top: 50%;
     left: 50%;
@@ -27,14 +26,20 @@ gifImage.style.cssText = `
 `;
 
 overlay.appendChild(gifImage);
+
 document.body.appendChild(overlay);
 
-function hideOverlay() {
-    overlay.style.display = 'none';
+function showOverlay() {
+    overlay.style.display = 'flex';
     gifImage.style.display = 'block';
 }
 
+function hideOverlay() {
+    overlay.style.display = 'none';
+}
+
 document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(hideOverlay, 100);
+    showOverlay();
+});
 
 window.addEventListener('load', hideOverlay);
